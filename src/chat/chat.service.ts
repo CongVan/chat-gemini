@@ -12,6 +12,7 @@ export class ChatService {
   async chatCompletion({ messages }: ChatCompletionDto) {
     const geminiStream = await this.geminiService.createChatCompletion({
       messages,
+      stream: true,
     });
 
     const stream = GoogleGenerativeAIStream(geminiStream);
